@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alcohols, Phenols & Ethers - Summary</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 15px;
+            font-size: 16px;
+        }
+        
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+            padding: 20px;
+            overflow-x: hidden;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #007bff;
+        }
+        
+        h1 {
+            color: #0056b3;
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+        
+        .subtitle {
+            color: #6c757d;
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+        
+        h2 {
+            color: #007bff;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            padding-bottom: 6px;
+            border-bottom: 1px dashed #ccc;
+            font-size: 1.4rem;
+        }
+        
+        h3 {
+            color: #495057;
+            margin-top: 18px;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .lecture-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            margin-top: 20px;
+        }
+        
+        .lecture-card {
+            background: #e9f7fe;
+            border-left: 5px solid #007bff;
+            padding: 18px;
+            border-radius: 8px;
+            transition: transform 0.2s;
+        }
+        
+        .lecture-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 12px rgba(0, 123, 255, 0.15);
+        }
+        
+        .lecture-card h3 {
+            color: #0056b3;
+            margin-top: 0;
+            font-size: 1.2rem;
+        }
+        
+        .topic-list {
+            list-style-type: none;
+            padding-left: 0;
+            margin-top: 10px;
+        }
+        
+        .topic-list li {
+            padding: 6px 0;
+            padding-left: 22px;
+            position: relative;
+            font-size: 0.95rem;
+        }
+        
+        .topic-list li:before {
+            content: "›";
+            position: absolute;
+            left: 8px;
+            color: #007bff;
+            font-weight: bold;
+        }
+        
+        /* Mobile-friendly tables */
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            margin: 15px 0;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+            min-width: 500px; /* Minimum width for readability */
+        }
+        
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 10px 12px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #007bff;
+            color: white;
+            font-weight: 600;
+            position: sticky;
+            left: 0;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        .note-box {
+            background-color: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 14px;
+            margin: 18px 0;
+            border-radius: 6px;
+            font-size: 0.95rem;
+        }
+        
+        .highlight {
+            background-color: #d4edda;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: 600;
+            display: inline-block;
+            margin: 2px 0;
+        }
+        
+        footer {
+            margin-top: 30px;
+            text-align: center;
+            color: #6c757d;
+            font-size: 0.85rem;
+            padding-top: 18px;
+            border-top: 1px solid #eee;
+        }
+        
+        /* Improve readability on small screens */
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+                font-size: 15px;
+            }
+            
+            .container {
+                padding: 15px;
+                border-radius: 10px;
+            }
+            
+            h1 {
+                font-size: 1.6rem;
+            }
+            
+            h2 {
+                font-size: 1.3rem;
+            }
+            
+            h3 {
+                font-size: 1.1rem;
+            }
+            
+            .lecture-card {
+                padding: 15px;
+            }
+            
+            table {
+                font-size: 0.85rem;
+            }
+            
+            th, td {
+                padding: 8px 10px;
+            }
+        }
+        
+        /* Add touch-friendly buttons if needed */
+        .btn {
+            display: inline-block;
+            background-color: #007bff;
+            color: white;
+            padding: 10px 18px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 10px 5px;
+            text-align: center;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        
+        /* Section spacing for better readability */
+        section {
+            margin-bottom: 25px;
+        }
+        
+        /* Make chemical formulas more readable */
+        sub, sup {
+            font-size: 0.8em;
+            line-height: 0;
+        }
+        
+        /* Improve tap targets on mobile */
+        .topic-list li {
+            padding-top: 8px;
+            padding-bottom: 8px;
+        }
+        
+        /* Add subtle animations for better UX */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .lecture-card, .note-box, table {
+            animation: fadeIn 0.4s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Alcohols, Phenols & Ethers</h1>
+            <p class="subtitle">Organic Chemistry | JEE 2026</p>
+            <p>by (RA Baba)</p>
+        </header>
+
+        <section>
+            <h2>📚 Lecture Overview</h2>
+            <div class="lecture-grid">
+                <div class="lecture-card">
+                    <h3>Lecture 01</h3>
+                    <p><strong>Focus:</strong> Grignard Reagent, Reduction Basics</p>
+                    <ul class="topic-list">
+                        <li>Nucleophilic Addition</li>
+                        <li>Grignard & Hydride Reagents</li>
+                        <li>Formation of Alcohols</li>
+                        <li>Reducing Agents: LAH, NaBH<sub>4</sub></li>
+                    </ul>
+                </div>
+                
+                <div class="lecture-card">
+                    <h3>Lecture 02</h3>
+                    <p><strong>Focus:</strong> Reduction & Oxidation Reactions</p>
+                    <ul class="topic-list">
+                        <li>Bouveault-Blanc Reduction</li>
+                        <li>Mendius Reaction</li>
+                        <li>Clemmensen & Wolff-Kishner</li>
+                        <li>Oxidation of Alcohols</li>
+                    </ul>
+                </div>
+                
+                <div class="lecture-card">
+                    <h3>Lectures 03 & 04</h3>
+                    <p><strong>Focus:</strong> Practice Problems, Aldehyde Tests</p>
+                    <ul class="topic-list">
+                        <li>Extensive Problem Solving</li>
+                        <li>Carbene Chemistry</li>
+                        <li>Tollens', Fehling's Tests</li>
+                        <li>Carbylamine Reaction</li>
+                    </ul>
+                </div>
+                
+                <div class="lecture-card">
+                    <h3>Lectures 05 & 06</h3>
+                    <p><strong>Focus:</strong> Phenol Reactions</p>
+                    <ul class="topic-list">
+                        <li>Reimer-Tiemann Reaction</li>
+                        <li>Kolbe's Reaction</li>
+                        <li>Cumene Hydroperoxide</li>
+                        <li>Baeyer-Villiger Oxidation</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>🔬 Key Reducing Agents</h2>
+            <div class="note-box">
+                <strong>Tip:</strong> Remember selectivity and conditions for each reagent.
+            </div>
+            
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Reagent</th>
+                            <th>Nature</th>
+                            <th>Primary Use</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>LiAlH<sub>4</sub> (LAH)</strong></td>
+                            <td>Non-selective, Strong</td>
+                            <td>Reduces all C=O, N groups</td>
+                        </tr>
+                        <tr>
+                            <td><strong>NaBH<sub>4</sub> (SBH)</strong></td>
+                            <td>Mild, Selective</td>
+                            <td>Only aldehydes & ketones</td>
+                        </tr>
+                        <tr>
+                            <td><strong>DIBAL-H</strong></td>
+                            <td>Very Selective</td>
+                            <td>Esters → Aldehydes at -78°C</td>
+                        </tr>
+                        <tr>
+                            <td><strong>B<sub>2</sub>H<sub>6</sub></strong></td>
+                            <td>Electrophilic</td>
+                            <td>R-COOH > Alkene reduction</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section>
+            <h2>⚗️ Important Named Reactions</h2>
+            
+            <h3>1. Clemmensen vs Wolff-Kishner</h3>
+            <div class="table-container">
+                <table>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Clemmensen</th>
+                        <th>Wolff-Kishner</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Reagents</strong></td>
+                        <td>Zn-Hg / HCl</td>
+                        <td>NH<sub>2</sub>-NH<sub>2</sub> / KOH, Δ</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Medium</strong></td>
+                        <td>Acidic</td>
+                        <td>Basic</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Use</strong></td>
+                        <td>Carbonyl → Hydrocarbon (Acidic)</td>
+                        <td>Carbonyl → Hydrocarbon (Basic)</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <h3>2. Phenol Reactions</h3>
+            <ul class="topic-list">
+                <li><span class="highlight">Reimer-Tiemann:</span> CHCl<sub>3</sub> + NaOH → ortho-hydroxybenzaldehyde</li>
+                <li><span class="highlight">Kolbe's:</span> Phenol + CO<sub>2</sub> → Salicylic acid</li>
+                <li><span class="highlight">Cumene Process:</span> Cumene hydroperoxide → Phenol + Acetone</li>
+            </ul>
+            
+            <h3>3. Other Key Reactions</h3>
+            <ul class="topic-list">
+                <li><span class="highlight">Baeyer-Villiger:</span> Ketone + Peracid → Ester</li>
+                <li><span class="highlight">Carbylamine:</span> 1° amine test (foul smell)</li>
+                <li><span class="highlight">Stephen's:</span> Nitrile → Aldehyde</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>🧪 Tests for Aldehydes</h2>
+            <div class="table-container">
+                <table>
+                    <tr>
+                        <th>Test</th>
+                        <th>Reagent</th>
+                        <th>Positive Result</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Tollens'</strong></td>
+                        <td>Ammoniacal AgNO<sub>3</sub></td>
+                        <td>Silver mirror</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Fehling's</strong></td>
+                        <td>Alkaline Cu<sup>2+</sup></td>
+                        <td>Red ppt (Cu<sub>2</sub>O)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Schiff's</strong></td>
+                        <td>SO<sub>2</sub>-rosaniline</td>
+                        <td>Pink color</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <div class="note-box">
+                <strong>Remember:</strong> Fehling's test works only for <strong>aliphatic</strong> aldehydes, not aromatic ones.
+            </div>
+        </section>
+
+        <section>
+            <h2>💡 Core Concepts & JEE Tips</h2>
+            <div class="note-box">
+                <strong>JEE Focus:</strong> Memorize reagent selectivity, product identification, and reaction conditions for quick problem-solving.
+            </div>
+            
+            <ul class="topic-list">
+                <li><strong>Grignard Reagent (RMgX):</strong> Source of carbanion. Always requires aqueous workup after reaction.</li>
+                <li><strong>Oxidation States:</strong> 1° alcohol → aldehyde → acid; 2° → ketone; 3° → no easy oxidation.</li>
+                <li><strong>Popoff's Rule:</strong> In unsymmetrical ketone oxidation, carbonyl stays with <strong>smaller</strong> alkyl group.</li>
+                <li><strong>Carbene (:CX<sub>2</sub>):</strong> Electrophile from CHCl<sub>3</sub> + OH<sup>-</sup>.</li>
+                <li><strong>Organometallics:</strong> More ionic character = more reactive (RMgX > R<sub>2</sub>CuLi).</li>
+            </ul>
+        </section>
+
+        <footer>
+            <p><strong>Compiled from Lectures 01-06</strong></p>
+            <p>Rohit Agarwal (RA Baba) | JEE 2026 Organic Chemistry</p>
+            <p style="margin-top: 15px; color: #0056b3; font-weight: 600;">Good luck with your preparation! 🚀</p>
+        </footer>
+    </div>
+
+    <script>
+        // Add simple interaction for mobile
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add click feedback for lecture cards
+            const cards = document.querySelectorAll('.lecture-card');
+            cards.forEach(card => {
+                card.addEventListener('touchstart', function() {
+                    this.style.transform = 'scale(0.98)';
+                });
+                
+                card.addEventListener('touchend', function() {
+                    this.style.transform = 'scale(1)';
+                });
+            });
+            
+            // Make tables more mobile-friendly
+            const tables = document.querySelectorAll('table');
+            tables.forEach(table => {
+                table.setAttribute('role', 'grid');
+            });
+        });
+    </script>
+</body>
+</html>
