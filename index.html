@@ -85,6 +85,19 @@
             box-shadow: 0 6px 20px rgba(0,0,0,0.2);
         }
 
+        /* Added Developer Button Styling */
+        .btn-dev {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            border: 1px solid var(--border);
+            margin-left: 10px;
+        }
+
+        .btn-dev:hover {
+            background: rgba(255, 255, 255, 0.25);
+            color: #ffffff;
+        }
+
         .grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -249,6 +262,7 @@
         
         <p>Your gateway to concise, well-structured notes for efficient learning and quick revision.</p>
         <button class="btn" onclick="showPage('subjects')">Notes</button>
+        <button class="btn btn-dev" onclick="window.open('https://nikhil007-eng.github.io/xos-social-Id/', '_blank')">Developer</button>
         
         <div class="credits">
             <div class="pw-credit">📚 Credits to PW</div>
