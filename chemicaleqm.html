@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chemical Equilibrium - Complete Notes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px 0;
+            background: linear-gradient(135deg, #2c3e50, #4a6491);
+            color: white;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        section {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            border-left: 5px solid #3498db;
+        }
+
+        h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        h3 {
+            color: #2980b9;
+            margin: 15px 0 10px 0;
+            font-size: 1.4rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #2c3e50;
+            color: white;
+            font-weight: 600;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .formula-box {
+            background: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+        }
+
+        .formula {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .note {
+            background: #fffde7;
+            padding: 15px;
+            border-left: 4px solid #f1c40f;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .note-title {
+            font-weight: bold;
+            color: #d35400;
+            margin-bottom: 5px;
+        }
+
+        .example {
+            background: #e8f4f8;
+            padding: 15px;
+            border-left: 4px solid #1abc9c;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .example-title {
+            font-weight: bold;
+            color: #16a085;
+            margin-bottom: 5px;
+        }
+
+        .key-point {
+            background: #e8f6f3;
+            padding: 12px;
+            border-radius: 5px;
+            margin: 10px 0;
+            border-left: 3px solid #27ae60;
+        }
+
+        .list-item {
+            margin: 8px 0 8px 20px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            border-top: 1px solid #ecf0f1;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            section {
+                padding: 15px;
+            }
+            
+            th, td {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Chemical Equilibrium</h1>
+        <p class="subtitle">Complete Theory, Formulas & Concepts</p>
+    </header>
+
+    <main>
+        <section id="introduction">
+            <h2>1. Introduction to Chemical Equilibrium</h2>
+            
+            <h3>Reversible vs Irreversible Reactions</h3>
+            <table>
+                <tr>
+                    <th>Irreversible Reaction</th>
+                    <th>Reversible Reaction</th>
+                </tr>
+                <tr>
+                    <td>Proceeds in forward direction only</td>
+                    <td>Proceeds in both directions</td>
+                </tr>
+                <tr>
+                    <td>Does not attain equilibrium</td>
+                    <td>Attains equilibrium state</td>
+                </tr>
+                <tr>
+                    <td>Represented by single arrow (→)</td>
+                    <td>Represented by double arrow (↔)</td>
+                </tr>
+                <tr>
+                    <td><strong>Examples:</strong><br>• Precipitation reactions<br>• Neutralisation reactions<br>• Decomposition of solids in open vessel</td>
+                    <td><strong>Examples:</strong><br>• Homogeneous reactions<br>• Heterogeneous reactions</td>
+                </tr>
+            </table>
+            
+            <div class="key-point">
+                <strong>Key Concept:</strong> At equilibrium, the rate of forward reaction equals the rate of backward reaction.
+            </div>
+        </section>
+
+        <section id="equilibrium-constant">
+            <h2>2. Equilibrium Constant</h2>
+            
+            <h3>Law of Mass Action</h3>
+            <p>For a general reversible reaction:</p>
+            <div class="formula-box">
+                <p class="formula">aA + bB ⇌ cC + dD</p>
+            </div>
+            
+            <h3>Equilibrium Constant in Terms of Concentration (K<sub>c</sub>)</h3>
+            <div class="formula-box">
+                <p class="formula">K<sub>c</sub> = [C]<sup>c</sup>[D]<sup>d</sup> / [A]<sup>a</sup>[B]<sup>b</sup></p>
+            </div>
+            
+            <h3>Equilibrium Constant in Terms of Partial Pressure (K<sub>p</sub>)</h3>
+            <div class="formula-box">
+                <p class="formula">K<sub>p</sub> = (P<sub>C</sub>)<sup>c</sup>(P<sub>D</sub>)<sup>d</sup> / (P<sub>A</sub>)<sup>a</sup>(P<sub>B</sub>)<sup>b</sup></p>
+            </div>
+            
+            <h3>Relationship Between K<sub>p</sub> and K<sub>c</sub></h3>
+            <div class="formula-box">
+                <p class="formula">K<sub>p</sub> = K<sub>c</sub>(RT)<sup>Δn<sub>g</sub></sup></p>
+            </div>
+            <p>where Δn<sub>g</sub> = (moles of gaseous products) - (moles of gaseous reactants)</p>
+            
+            <div class="example">
+                <p class="example-title">Example:</p>
+                <p>For the reaction: N₂(g) + 3H₂(g) ⇌ 2NH₃(g)</p>
+                <p>Δn<sub>g</sub> = 2 - (1 + 3) = -2</p>
+                <p>K<sub>p</sub> = K<sub>c</sub>(RT)<sup>-2</sup></p>
+            </div>
+        </section>
+
+        <section id="reaction-quotient">
+            <h2>3. Reaction Quotient (Q)</h2>
+            
+            <div class="formula-box">
+                <p class="formula">For reaction: aA + bB ⇌ cC + dD</p>
+                <p class="formula">Q<sub>c</sub> = [C]<sup>c</sup>[D]<sup>d</sup> / [A]<sup>a</sup>[B]<sup>b</sup> (at any time)</p>
+            </div>
+            
+            <div class="note">
+                <p class="note-title">Comparison with Equilibrium Constant:</p>
+                <ul>
+                    <li class="list-item">If Q < K → Reaction proceeds in forward direction</li>
+                    <li class="list-item">If Q > K → Reaction proceeds in backward direction</li>
+                    <li class="list-item">If Q = K → System is at equilibrium</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="factors-affecting-equilibrium">
+            <h2>4. Factors Affecting Equilibrium Constant</h2>
+            
+            <h3>1. Stoichiometry of Reaction</h3>
+            <div class="formula-box">
+                <p class="formula">If reaction is multiplied by n, then K<sub>new</sub> = (K)<sup>n</sup></p>
+            </div>
+            
+            <h3>2. Reversing the Reaction</h3>
+            <div class="formula-box">
+                <p class="formula">If A ⇌ B has K<sub>1</sub>, then B ⇌ A has K<sub>2</sub> = 1/K<sub>1</sub></p>
+            </div>
+            
+            <h3>3. Temperature Dependence (Van't Hoff Equation)</h3>
+            <div class="formula-box">
+                <p class="formula">ln(K) = -ΔH°/R(1/T) + ΔS°/R</p>
+            </div>
+            
+            <div class="formula-box">
+                <p class="formula">log(K₂/K₁) = ΔH°/(2.303R) × (1/T₁ - 1/T₂)</p>
+            </div>
+            
+            <div class="note">
+                <p class="note-title">Effect of Temperature:</p>
+                <ul>
+                    <li class="list-item"><strong>Endothermic reactions:</strong> K increases with increase in temperature</li>
+                    <li class="list-item"><strong>Exothermic reactions:</strong> K decreases with increase in temperature</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="degree-of-dissociation">
+            <h2>5. Degree of Dissociation (α)</h2>
+            
+            <div class="formula-box">
+                <p class="formula">α = (moles dissociated at equilibrium) / (initial moles)</p>
+            </div>
+            
+            <h3>Relation with Equilibrium Constant</h3>
+            
+            <div class="example">
+                <p class="example-title">For reaction: A(g) ⇌ nB(g)</p>
+                <div class="formula-box">
+                    <p class="formula">K<sub>p</sub> = (n²α²P) / (1 - α²)</p>
+                </div>
+            </div>
+            
+            <div class="example">
+                <p class="example-title">For reaction: A(g) ⇌ B(g) + C(g)</p>
+                <div class="formula-box">
+                    <p class="formula">K<sub>p</sub> = α²P / (1 - α²)</p>
+                </div>
+            </div>
+            
+            <div class="example">
+                <p class="example-title">For reaction: A(g) ⇌ B(g) + ½C(g)</p>
+                <div class="formula-box">
+                    <p class="formula">K<sub>p</sub> = α³√P / [2(1-α)√(2+α)]</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="vapor-density">
+            <h2>6. Vapor Density Method</h2>
+            
+            <div class="formula-box">
+                <p class="formula">For reaction: A(g) ⇌ nB(g)</p>
+                <p class="formula">α = (D - d) / [(n - 1)d]</p>
+            </div>
+            
+            <p>where:</p>
+            <ul>
+                <li class="list-item">D = Theoretical vapor density (before dissociation)</li>
+                <li class="list-item">d = Observed vapor density (after dissociation)</li>
+                <li class="list-item">n = Number of moles of gaseous products</li>
+            </ul>
+            
+            <div class="example">
+                <p class="example-title">Example Calculation:</p>
+                <p>For PCl₅(g) ⇌ PCl₃(g) + Cl₂(g), n = 2</p>
+                <p>α = (D - d) / d</p>
+            </div>
+        </section>
+
+        <section id="heterogeneous-equilibrium">
+            <h2>7. Heterogeneous Equilibrium</h2>
+            
+            <p>All species are not in the same phase.</p>
+            
+            <div class="example">
+                <p class="example-title">Important Examples:</p>
+                <ul>
+                    <li class="list-item">CaCO₃(s) ⇌ CaO(s) + CO₂(g)</li>
+                    <li class="list-item">NH₂COONH₄(s) ⇌ 2NH₃(g) + CO₂(g)</li>
+                    <li class="list-item">C(s) + CO₂(g) ⇌ 2CO(g)</li>
+                </ul>
+            </div>
+            
+            <div class="note">
+                <p class="note-title">Important Note:</p>
+                <p>For heterogeneous equilibria, concentrations of pure solids and liquids are constant and not included in equilibrium expression.</p>
+            </div>
+        </section>
+
+        <section id="le-chatelier">
+            <h2>8. Le Chatelier's Principle</h2>
+            
+            <p>"If a system at equilibrium is subjected to a change of pressure, temperature or concentration, the equilibrium shifts to counteract the effect of that change."</p>
+            
+            <h3>Effects of Various Factors:</h3>
+            
+            <table>
+                <tr>
+                    <th>Change Applied</th>
+                    <th>Direction of Shift</th>
+                </tr>
+                <tr>
+                    <td>Increase in reactant concentration</td>
+                    <td>Forward direction</td>
+                </tr>
+                <tr>
+                    <td>Increase in product concentration</td>
+                    <td>Backward direction</td>
+                </tr>
+                <tr>
+                    <td>Increase in pressure</td>
+                    <td>Towards side with fewer moles of gas</td>
+                </tr>
+                <tr>
+                    <td>Decrease in pressure</td>
+                    <td>Towards side with more moles of gas</td>
+                </tr>
+                <tr>
+                    <td>Increase in temperature</td>
+                    <td>Towards endothermic direction</td>
+                </tr>
+                <tr>
+                    <td>Decrease in temperature</td>
+                    <td>Towards exothermic direction</td>
+                </tr>
+                <tr>
+                    <td>Addition of inert gas at constant volume</td>
+                    <td>No effect</td>
+                </tr>
+                <tr>
+                    <td>Addition of inert gas at constant pressure</td>
+                    <td>Towards side with more moles of gas</td>
+                </tr>
+                <tr>
+                    <td>Addition of catalyst</td>
+                    <td>No effect on equilibrium position</td>
+                </tr>
+            </table>
+        </section>
+
+        <section id="thermodynamics">
+            <h2>9. Thermodynamics of Equilibrium</h2>
+            
+            <h3>Relationship with Gibbs Free Energy</h3>
+            <div class="formula-box">
+                <p class="formula">ΔG° = -RT ln K</p>
+            </div>
+            
+            <div class="formula-box">
+                <p class="formula">ΔG° = ΔH° - TΔS°</p>
+            </div>
+            
+            <div class="note">
+                <p class="note-title">Key Relationships:</p>
+                <ul>
+                    <li class="list-item">If ΔG° < 0, then K > 1 (Products favored)</li>
+                    <li class="list-item">If ΔG° > 0, then K < 1 (Reactants favored)</li>
+                    <li class="list-item">If ΔG° = 0, then K = 1 (Equal amounts)</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="multiple-equilibria">
+            <h2>10. Multiple Equilibria</h2>
+            
+            <div class="formula-box">
+                <p class="formula">If: A ⇌ B (K₁) and B ⇌ C (K₂)</p>
+                <p class="formula">Then: A ⇌ C (K₃ = K₁ × K₂)</p>
+            </div>
+            
+            <div class="example">
+                <p class="example-title">Example:</p>
+                <p>For stepwise formation of [Cu(NH₃)₄]²⁺:</p>
+                <p>K<sub>overall</sub> = K₁ × K₂ × K₃ × K₄</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Chemical Equilibrium Notes | Complete Reference Guide</p>
+        <p>Includes all key formulas, concepts, and examples</p>
+    </footer>
+</body>
+</html>
