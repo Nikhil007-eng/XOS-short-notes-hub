@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ionic Equilibrium - Formulas & Concepts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .formula {
+            background: #e8f4fd;
+            padding: 10px;
+            margin: 10px 0;
+            border-left: 5px solid #3498db;
+            font-family: "Courier New", monospace;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #2c3e50;
+            color: white;
+        }
+        .note {
+            background-color: #fffde7;
+            padding: 10px;
+            border-left: 5px solid #ffeb3b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Ionic Equilibrium – JEE Notes</h1>
+
+        <h2>1. Acid-Base Theories</h2>
+
+        <h3>Arrhenius Concept</h3>
+        <p><strong>Acid:</strong> Dissociates in water → H⁺</p>
+        <p><strong>Base:</strong> Dissociates in water → OH⁻</p>
+
+        <div class="formula">
+            HA(aq) ⇌ H⁺(aq) + A⁻(aq)
+        </div>
+
+        <h3>Brønsted–Lowry Concept</h3>
+        <p><strong>Acid:</strong> Proton donor</p>
+        <p><strong>Base:</strong> Proton acceptor</p>
+
+        <h3>Lewis Concept</h3>
+        <p><strong>Acid:</strong> Electron pair acceptor (e.g., BF₃)</p>
+        <p><strong>Base:</strong> Electron pair donor (e.g., NH₃)</p>
+
+        <hr>
+
+        <h2>2. Ionic Product of Water & pH</h2>
+        <div class="formula">
+            H₂O ⇌ H⁺ + OH⁻<br>
+            K_w = [H⁺][OH⁻] = 10⁻¹⁴ (at 25°C)
+        </div>
+        <div class="formula">
+            pH = -log[H⁺]<br>
+            pOH = -log[OH⁻]<br>
+            pH + pOH = 14 (at 25°C)
+        </div>
+
+        <div class="note">
+            <strong>Note:</strong> Neutral pH changes with temperature:<br>
+            • T > 25°C → pH < 7 for neutral water<br>
+            • T < 25°C → pH > 7 for neutral water
+        </div>
+
+        <hr>
+
+        <h2>3. pH Calculations</h2>
+
+        <h3>Strong Acid/Base</h3>
+        <div class="formula">
+            [H⁺] = C (for monoprotic strong acid)<br>
+            [OH⁻] = C (for monoprotic strong base)<br>
+            For Ba(OH)₂: [OH⁻] = 2 × concentration
+        </div>
+
+        <h3>Weak Acid/Base</h3>
+        <div class="formula">
+            For weak acid HA: Ka = [H⁺][A⁻]/[HA]<br>
+            If α ≤ 0.05: α = √(Ka/C)<br>
+            [H⁺] = Cα = √(Ka × C)<br>
+            pH = ½(pKa – log C)
+        </div>
+
+        <div class="formula">
+            For weak base BOH: Kb = [BH⁺][OH⁻]/[BOH]<br>
+            [OH⁻] = √(Kb × C)<br>
+            pOH = ½(pKb – log C)
+        </div>
+
+        <h3>Very Dilute Strong Acid</h3>
+        <p>If [H⁺] from acid < 10⁻⁶ M, consider contribution from water.</p>
+
+        <hr>
+
+        <h2>4. Salt Hydrolysis</h2>
+
+        <table>
+            <tr>
+                <th>Salt Type</th>
+                <th>Hydrolysis Constant (K<sub>h</sub>)</th>
+                <th>pH Formula</th>
+            </tr>
+            <tr>
+                <td>Weak Acid + Strong Base (e.g., CH₃COONa)</td>
+                <td>K<sub>h</sub> = K<sub>w</sub>/K<sub>a</sub></td>
+                <td>pH = 7 + ½ pK<sub>a</sub> + ½ log C</td>
+            </tr>
+            <tr>
+                <td>Strong Acid + Weak Base (e.g., NH₄Cl)</td>
+                <td>K<sub>h</sub> = K<sub>w</sub>/K<sub>b</sub></td>
+                <td>pH = 7 – ½ pK<sub>b</sub> – ½ log C</td>
+            </tr>
+            <tr>
+                <td>Weak Acid + Weak Base (e.g., CH₃COONH₄)</td>
+                <td>K<sub>h</sub> = K<sub>w</sub>/(K<sub>a</sub>·K<sub>b</sub>)</td>
+                <td>pH = 7 + ½(pK<sub>a</sub> – pK<sub>b</sub>)</td>
+            </tr>
+        </table>
+
+        <hr>
+
+        <h2>5. Buffer Solutions</h2>
+
+        <h3>Acidic Buffer (Weak Acid + Salt of its conjugate base)</h3>
+        <div class="formula">
+            Henderson–Hasselbalch equation:<br>
+            pH = pK<sub>a</sub> + log([Salt]/[Acid])
+        </div>
+
+        <h3>Basic Buffer (Weak Base + Salt of its conjugate acid)</h3>
+        <div class="formula">
+            pOH = pK<sub>b</sub> + log([Salt]/[Base])<br>
+            pH = 14 – pOH
+        </div>
+
+        <div class="note">
+            <strong>Buffer capacity is maximum when [Salt] = [Acid/Base]</strong>
+        </div>
+
+        <hr>
+
+        <h2>6. Solubility Product (K<sub>sp</sub>)</h2>
+
+        <table>
+            <tr>
+                <th>Salt Type</th>
+                <th>Ionization</th>
+                <th>K<sub>sp</sub> Expression</th>
+            </tr>
+            <tr>
+                <td>AB (e.g., AgCl)</td>
+                <td>AB ⇌ A⁺ + B⁻</td>
+                <td>K<sub>sp</sub> = S²</td>
+            </tr>
+            <tr>
+                <td>AB₂ or A₂B (e.g., CaF₂)</td>
+                <td>AB₂ ⇌ A²⁺ + 2B⁻</td>
+                <td>K<sub>sp</sub> = 4S³</td>
+            </tr>
+            <tr>
+                <td>A₂B₃ (e.g., Bi₂S₃)</td>
+                <td>A₂B₃ ⇌ 2A³⁺ + 3B²⁻</td>
+                <td>K<sub>sp</sub> = 108S⁵</td>
+            </tr>
+            <tr>
+                <td>A<sub>x</sub>B<sub>y</sub></td>
+                <td>⇌ xA + yB</td>
+                <td>K<sub>sp</sub> = (xS)<sup>x</sup>(yS)<sup>y</sup></td>
+            </tr>
+        </table>
+
+        <div class="formula">
+            General: S = [K<sub>sp</sub>/(x<sup>x</sup>·y<sup>y</sup>)]<sup>1/(x+y)</sup>
+        </div>
+
+        <h3>Common Ion Effect</h3>
+        <p>Solubility decreases in presence of common ion.</p>
+        <div class="formula">
+            For AgCl in NaCl solution:<br>
+            K<sub>sp</sub> = [Ag⁺][Cl⁻] = S(S + [Cl⁻]<sub>added</sub>)
+        </div>
+
+        <hr>
+
+        <h2>7. Indicators</h2>
+        <div class="formula">
+            HIn ⇌ H⁺ + In⁻<br>
+            pH = pK<sub>In</sub> + log([In⁻]/[HIn])
+        </div>
+        <p><strong>Color change range:</strong> pH = pK<sub>In</sub> ± 1</p>
+
+        <hr>
+
+        <h2>Key Points to Remember</h2>
+        <ul>
+            <li>For weak acids/bases, use approximation only if α ≤ 0.05.</li>
+            <li>In very dilute acids ([H⁺] < 10⁻⁶ M), consider water’s contribution.</li>
+            <li>Buffer works best when pH ≈ pK<sub>a</sub> (for acidic buffer).</li>
+            <li>Salt hydrolysis depends on relative strengths of acid and base.</li>
+            <li>Selective precipitation: salt with lowest [ion] needed to precipitate first.</li>
+            <li>Solubility in common ion solution < solubility in pure water.</li>
+        </ul>
+    </div>
+</body>
+</html>
