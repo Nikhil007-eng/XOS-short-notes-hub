@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inorganic Chemistry — Revision Notes</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0d0d0d;
+    --paper: #f5f0e8;
+    --cream: #ede8dc;
+    --accent: #c0392b;
+    --accent2: #1a3a5c;
+    --gold: #c9a84c;
+    --muted: #6b6457;
+    --light-rule: #d4cfc5;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── MASTHEAD ── */
+  .masthead {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .masthead::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 420px; height: 420px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #c0392b22 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .masthead-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 60px 48px 50px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 32px;
+    align-items: end;
+  }
+
+  .issue-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 18px;
+    display: block;
+  }
+
+  .masthead h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(52px, 7vw, 88px);
+    font-weight: 900;
+    line-height: 0.95;
+    letter-spacing: -2px;
+    color: #fff;
+  }
+
+  .masthead h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .masthead-meta {
+    text-align: right;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: #888;
+    line-height: 2;
+  }
+
+  .masthead-meta strong {
+    display: block;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--paper);
+    letter-spacing: -0.5px;
+    margin-bottom: 4px;
+  }
+
+  .chapter-ticker {
+    background: var(--accent);
+    color: #fff;
+    padding: 10px 48px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    display: flex;
+    gap: 40px;
+    overflow: hidden;
+    max-width: 100%;
+  }
+
+  .chapter-ticker span::before { content: "◆  "; }
+
+  /* ── LAYOUT ── */
+  .wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 48px 80px;
+  }
+
+  /* ── TOC ── */
+  .toc-strip {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0;
+    border-bottom: 2px solid var(--ink);
+    margin-bottom: 60px;
+  }
+
+  .toc-item {
+    padding: 20px 14px;
+    border-right: 1px solid var(--light-rule);
+    text-align: center;
+    cursor: default;
+    transition: background 0.2s;
+  }
+
+  .toc-item:last-child { border-right: none; }
+  .toc-item:hover { background: var(--cream); }
+
+  .toc-num {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--accent);
+    display: block;
+    line-height: 1;
+    font-family: 'Playfair Display', serif;
+  }
+
+  .toc-name {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 5px;
+    display: block;
+    line-height: 1.3;
+  }
+
+  /* ── CHAPTER HEADER ── */
+  .chapter {
+    margin-bottom: 70px;
+    animation: fadeUp 0.5s ease both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .chapter:nth-child(1) { animation-delay: 0.05s; }
+  .chapter:nth-child(2) { animation-delay: 0.1s; }
+  .chapter:nth-child(3) { animation-delay: 0.15s; }
+  .chapter:nth-child(4) { animation-delay: 0.2s; }
+  .chapter:nth-child(5) { animation-delay: 0.25s; }
+  .chapter:nth-child(6) { animation-delay: 0.3s; }
+
+  .chapter-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 28px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--light-rule);
+    position: relative;
+  }
+
+  .chapter-header::after {
+    content: '';
+    position: absolute;
+    bottom: -1px; left: 0;
+    height: 3px;
+    width: 80px;
+    background: var(--accent);
+  }
+
+  .ch-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 72px;
+    font-weight: 900;
+    line-height: 1;
+    color: var(--cream);
+    -webkit-text-stroke: 2px var(--light-rule);
+    user-select: none;
+    flex-shrink: 0;
+  }
+
+  .ch-info { flex: 1; }
+
+  .ch-tag {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .ch-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--ink);
+  }
+
+  /* ── CONTENT GRID ── */
+  .content-grid {
+    display: grid;
+    gap: 18px;
+  }
+
+  .col-2 { grid-template-columns: 1fr 1fr; }
+  .col-3 { grid-template-columns: 1fr 1fr 1fr; }
+  .col-1-2 { grid-template-columns: 1fr 2fr; }
+  .col-2-1 { grid-template-columns: 2fr 1fr; }
+
+  /* ── CARDS ── */
+  .card {
+    background: #fff;
+    border: 1px solid var(--light-rule);
+    border-radius: 2px;
+    padding: 22px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card-accent-left {
+    border-left: 4px solid var(--accent);
+  }
+
+  .card-accent-blue {
+    border-left: 4px solid var(--accent2);
+  }
+
+  .card-accent-gold {
+    border-left: 4px solid var(--gold);
+  }
+
+  .card-dark {
+    background: var(--ink);
+    color: var(--paper);
+    border: none;
+  }
+
+  .card-dark .card-title { color: var(--gold); }
+  .card-dark p, .card-dark li { color: #ccc; }
+
+  .card-cream {
+    background: var(--cream);
+    border: 1px solid var(--light-rule);
+  }
+
+  .card-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent2);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .card-title::before {
+    content: '';
+    display: inline-block;
+    width: 18px; height: 2px;
+    background: currentColor;
+    flex-shrink: 0;
+  }
+
+  .card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+
+  .card p { font-size: 13.5px; color: #333; line-height: 1.75; margin-bottom: 8px; }
+  .card p:last-child { margin-bottom: 0; }
+
+  /* ── TRICK BOX ── */
+  .trick-box {
+    background: linear-gradient(135deg, #fff7e6 0%, #fff3d6 100%);
+    border: 1px solid #e8d5a0;
+    border-left: 4px solid var(--gold);
+    border-radius: 2px;
+    padding: 18px 22px;
+    position: relative;
+  }
+
+  .trick-box::before {
+    content: "✦ TRICK";
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .trick-box p {
+    font-size: 13px;
+    color: #5a4a1a;
+    font-style: italic;
+    line-height: 1.7;
+  }
+
+  .trick-box .mnemonic {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--accent);
+    font-style: normal;
+    font-family: 'Space Grotesk', sans-serif;
+    display: block;
+    margin-top: 6px;
+    padding: 8px 12px;
+    background: rgba(192, 57, 43, 0.07);
+    border-radius: 2px;
+    letter-spacing: 0.02em;
+  }
+
+  /* ── SERIES / ORDER DISPLAY ── */
+  .series {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: center;
+    margin: 10px 0;
+  }
+
+  .series-item {
+    background: var(--accent2);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: 2px;
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+  .series-arrow {
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 300;
+  }
+
+  .series-item.red { background: var(--accent); }
+  .series-item.gold { background: var(--gold); color: var(--ink); }
+  .series-item.green { background: #2e7d32; }
+
+  /* ── TABLE ── */
+  .chem-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12.5px;
+    margin-top: 10px;
+  }
+
+  .chem-table th {
+    background: var(--ink);
+    color: var(--gold);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 10px 12px;
+    text-align: left;
+  }
+
+  .chem-table td {
+    padding: 9px 12px;
+    border-bottom: 1px solid var(--light-rule);
+    vertical-align: top;
+  }
+
+  .chem-table tr:nth-child(even) td { background: var(--cream); }
+  .chem-table tr:hover td { background: #e8e2d4; }
+
+  /* ── FORMULA CHIPS ── */
+  .formula {
+    display: inline-block;
+    background: var(--accent2);
+    color: #fff;
+    font-size: 11.5px;
+    font-weight: 500;
+    padding: 2px 8px;
+    border-radius: 2px;
+    font-family: 'Space Grotesk', sans-serif;
+    vertical-align: middle;
+  }
+
+  .formula.red { background: var(--accent); }
+  .formula.gold { background: var(--gold); color: var(--ink); }
+
+  /* ── HIGHLIGHT ── */
+  .hl { color: var(--accent); font-weight: 600; }
+  .hl-blue { color: var(--accent2); font-weight: 600; }
+  .hl-gold { color: #9a7220; font-weight: 600; }
+
+  /* ── PULL QUOTE ── */
+  .pull-quote {
+    border-top: 3px solid var(--ink);
+    border-bottom: 1px solid var(--light-rule);
+    padding: 20px 0;
+    margin: 10px 0;
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-style: italic;
+    color: var(--ink);
+    line-height: 1.4;
+  }
+
+  .pull-quote cite {
+    display: block;
+    font-style: normal;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-top: 10px;
+  }
+
+  /* ── LIST ── */
+  .clean-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .clean-list li {
+    font-size: 13.5px;
+    padding: 7px 0 7px 20px;
+    border-bottom: 1px solid var(--light-rule);
+    position: relative;
+    color: #333;
+    line-height: 1.6;
+  }
+
+  .clean-list li:last-child { border-bottom: none; }
+
+  .clean-list li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  /* ── SPAN CARD ── */
+  .span-2 { grid-column: span 2; }
+  .span-3 { grid-column: span 3; }
+
+  /* ── DIVIDER ── */
+  .rule {
+    border: none;
+    border-top: 1px solid var(--light-rule);
+    margin: 50px 0;
+  }
+
+  /* ── COLOR DOT ── */
+  .dot {
+    display: inline-block;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    vertical-align: middle;
+    margin-right: 5px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink);
+    color: #666;
+    text-align: center;
+    padding: 32px 48px;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  footer strong { color: var(--gold); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .wrapper { padding: 0 20px 60px; }
+    .masthead-inner { grid-template-columns: 1fr; padding: 40px 20px 30px; }
+    .masthead-meta { text-align: left; }
+    .toc-strip { grid-template-columns: repeat(3, 1fr); }
+    .col-2, .col-3, .col-1-2, .col-2-1 { grid-template-columns: 1fr; }
+    .span-2, .span-3 { grid-column: span 1; }
+    .chapter-ticker { padding: 10px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<header class="masthead">
+  <div class="masthead-inner">
+    <div>
+      <span class="issue-label">Complete Revision Notes  ·  JEE / NEET Prep  ·  All Chapters</span>
+      <h1>Inorganic<br><em>Chemistry</em></h1>
+    </div>
+    <div class="masthead-meta">
+      <strong>6</strong>
+      Chapters Covered<br>
+      Periodic Table<br>
+      Bonding · Coordination<br>
+      p, d & f Block<br>
+      Salt Analysis
+    </div>
+  </div>
+  <div class="chapter-ticker">
+    <span>Periodic Table & Periodicity</span>
+    <span>Chemical Bonding</span>
+    <span>Coordination Compounds</span>
+    <span>p-Block Elements</span>
+    <span>d & f Block Elements</span>
+    <span>Salt Analysis</span>
+  </div>
+</header>
+
+<!-- CONTENTS BAR -->
+<div class="wrapper" style="padding-top: 48px;">
+  <div class="toc-strip">
+    <div class="toc-item"><span class="toc-num">01</span><span class="toc-name">Periodic Table</span></div>
+    <div class="toc-item"><span class="toc-num">02</span><span class="toc-name">Chemical Bonding</span></div>
+    <div class="toc-item"><span class="toc-num">03</span><span class="toc-name">Coordination</span></div>
+    <div class="toc-item"><span class="toc-num">04</span><span class="toc-name">p-Block</span></div>
+    <div class="toc-item"><span class="toc-num">05</span><span class="toc-name">d & f Block</span></div>
+    <div class="toc-item"><span class="toc-num">06</span><span class="toc-name">Salt Analysis</span></div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!-- CHAPTER 1: PERIODIC TABLE -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <section class="chapter" id="ch1">
+    <div class="chapter-header">
+      <div class="ch-num">01</div>
+      <div class="ch-info">
+        <span class="ch-tag">Chapter One</span>
+        <div class="ch-title">Periodic Table & Periodicity</div>
+      </div>
+    </div>
+
+    <div class="content-grid col-2">
+      <!-- IUPAC Naming -->
+      <div class="card card-accent-left">
+        <div class="card-title">IUPAC Naming (Z &gt; 100)</div>
+        <p>Elements 101–103 are <span class="hl">Mendelevium (Md)</span>, <span class="hl">Nobelium (No)</span>, and <span class="hl">Lawrencium (Lr)</span>.</p>
+        <p>If element <span class="hl-blue">119</span> is discovered, it will be named <strong>Ununennium (Uue)</strong> and will be an alkali metal in Group 1.</p>
+        <div class="trick-box" style="margin-top:14px;">
+          <p>Group 13–18 elements (Z = 113–118):</p>
+          <span class="mnemonic">"नेहा फ्लाई टू मॉस्को टू लिव इन 10 अगेन"</span>
+          <p style="margin-top:8px;">→ <b>Nh</b> (113) · <b>Fl</b> (114) · <b>Mc</b> (115) · <b>Lv</b> (116) · <b>Ts</b> (117) · <b>Og</b> (118)</p>
+        </div>
+      </div>
+
+      <!-- Atomic Radius -->
+      <div class="card card-accent-blue">
+        <div class="card-title">Atomic Radius</div>
+        <p>Radius generally <span class="hl">increases down the group</span>. Exception: <span class="hl">Al &gt; Ga</span> due to the <em>poor shielding of 3d electrons</em> in Gallium.</p>
+        <p>Due to <span class="hl-gold">Lanthanide Contraction</span> (poor shielding of 4f electrons), 4d and 5d series radii become nearly identical:</p>
+        <div class="series" style="margin-top:10px;">
+          <span class="series-item">Zr ≈ Hf</span>
+          <span class="series-item">Nb ≈ Ta</span>
+          <span class="series-item">Mo ≈ W</span>
+          <span class="series-item">Ag ≈ Au</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-grid col-3" style="margin-top:18px;">
+      <!-- IE -->
+      <div class="card">
+        <div class="card-title">Ionization Energy (IE)</div>
+        <p><strong>Boron Family "W" graph:</strong></p>
+        <div class="series">
+          <span class="series-item red">B</span>
+          <span class="series-arrow">&gt;</span>
+          <span class="series-item red">Tl</span>
+          <span class="series-arrow">&gt;</span>
+          <span class="series-item red">Ga</span>
+          <span class="series-arrow">&gt;</span>
+          <span class="series-item red">Al</span>
+          <span class="series-arrow">&gt;</span>
+          <span class="series-item red">In</span>
+        </div>
+        <p style="margin-top:10px;">Group 14: <span class="hl">Pb &gt; Sn</span></p>
+        <div class="trick-box" style="margin-top:12px;">
+          <p>3D series IE order:</p>
+          <span class="mnemonic">"जान फिर कोई बात क्यों नहीं मानती क्राइंग इज वेरी गुड स्कैम"</span>
+          <p style="margin-top:6px; font-size:12px; color:#555;">Zn &gt; Fe &gt; Co &gt; Cu &gt; Ni &gt; Mn &gt; Cr &gt; V &gt; Ti &gt; Sc</p>
+        </div>
+      </div>
+
+      <!-- EA -->
+      <div class="card card-accent-gold">
+        <div class="card-title">Electron Affinity (EA)</div>
+        <p><span class="hl">Chlorine</span> has the highest (most negative) electron affinity — not Fluorine!</p>
+        <p><strong>Endothermic (positive EA):</strong> Noble gases, N, Be, Mg, and all anions. Neon has the highest positive EA.</p>
+        <p style="margin-top:8px;"><strong>Halogens (magnitude):</strong></p>
+        <div class="series">
+          <span class="series-item green">Cl</span><span class="series-arrow">&gt;</span>
+          <span class="series-item">F</span><span class="series-arrow">&gt;</span>
+          <span class="series-item">Br</span><span class="series-arrow">&gt;</span>
+          <span class="series-item">I</span>
+        </div>
+        <p style="margin-top:8px;"><strong>Chalcogens (magnitude):</strong></p>
+        <div class="series">
+          <span class="series-item green">S</span><span class="series-arrow">&gt;</span>
+          <span class="series-item">Se</span><span class="series-arrow">&gt;</span>
+          <span class="series-item">Te</span><span class="series-arrow">&gt;</span>
+          <span class="series-item">Po</span><span class="series-arrow">&gt;</span>
+          <span class="series-item">O</span>
+        </div>
+      </div>
+
+      <!-- Oxides -->
+      <div class="card card-dark">
+        <div class="card-title">Nature of Oxides</div>
+        <ul class="clean-list">
+          <li style="border-color:#333; color:#ccc;"><strong style="color:#fff;">Neutral:</strong> CO, NO, N₂O</li>
+          <li style="border-color:#333; color:#ccc;"><strong style="color:#fff;">Acidic:</strong> High OS metals (+6, +7) like CrO₃, Mn₂O₇; non-metal oxides</li>
+          <li style="border-color:#333; color:#ccc; padding-bottom:0; border:none;"><strong style="color:#fff;">Amphoteric:</strong>
+            <div class="trick-box" style="margin-top:8px; background:#1a1a1a; border-color:#555;">
+              <p style="color:#aaa;">"आज सब कार वेंटो 13" → As³⁺, Sb³⁺, Cr³⁺, V⁵⁺, Te⁴⁺</p>
+              <span class="mnemonic">"जान सुनो बे आलिया पब गई"</span>
+              <p style="color:#aaa; margin-top:4px;">ZnO · SnO · BeO · Al₂O₃ · PbO</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!-- CHAPTER 2: CHEMICAL BONDING -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <section class="chapter" id="ch2">
+    <div class="chapter-header">
+      <div class="ch-num">02</div>
+      <div class="ch-info">
+        <span class="ch-tag">Chapter Two</span>
+        <div class="ch-title">Chemical Bonding</div>
+      </div>
+    </div>
+
+    <div class="content-grid col-1-2">
+      <div class="card card-cream">
+        <div class="pull-quote">
+          Bond order = 0 means the molecule does <em>not exist</em>.
+          <cite>MOT Principle</cite>
+        </div>
+        <p style="font-size:13px; color:var(--muted);">Fajans' Rule: covalent character increases with a larger anion and a smaller, highly charged cation. LiI is more covalent than LiF.</p>
+      </div>
+
+      <div class="card card-accent-left">
+        <div class="card-title">Molecular Orbital Theory (MOT)</div>
+        <table class="chem-table">
+          <thead>
+            <tr><th>Electrons</th><th>sp Mixing?</th><th>Energy Order</th><th>Example</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>≤ 14</td>
+              <td><span class="hl">Yes</span></td>
+              <td>π2p &lt; σ2p</td>
+              <td>N₂ (diamagnetic, BO=3)</td>
+            </tr>
+            <tr>
+              <td>&gt; 14</td>
+              <td>No</td>
+              <td>σ2p &lt; π2p</td>
+              <td>O₂ (paramagnetic, BO=2)</td>
+            </tr>
+            <tr>
+              <td>—</td>
+              <td>—</td>
+              <td>BO = 0</td>
+              <td>Be₂ (does not exist)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="content-grid col-2" style="margin-top:18px;">
+      <div class="card card-accent-blue">
+        <div class="card-title">Dipole Moment & Boiling Point Order</div>
+        <p style="margin-bottom:10px; font-size:13px; color:var(--muted);">A highly tested sequence — memorise this exactly:</p>
+        <div class="series" style="flex-wrap:wrap; row-gap:8px;">
+          <span class="series-item red">H₂O</span><span class="series-arrow">&gt;</span>
+          <span class="series-item red">HF</span><span class="series-arrow">&gt;</span>
+          <span class="series-item">NH₃</span><span class="series-arrow">&gt;</span>
+          <span class="series-item">HCl</span><span class="series-arrow">&gt;</span>
+          <span class="series-item">CHCl₃</span><span class="series-arrow">&gt;</span>
+          <span class="series-item">H₂S</span><span class="series-arrow">&gt;</span>
+          <span class="series-item">HBr</span><span class="series-arrow">&gt;</span>
+          <span class="series-item">HI</span><span class="series-arrow">&gt;</span>
+          <span class="series-item">NF₃</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Fajans' Rule — Covalent Character</div>
+        <ul class="clean-list">
+          <li>Larger anion → more covalent character</li>
+          <li>Smaller, highly charged cation → more covalent</li>
+          <li><span class="hl">LiI &gt; LiF</span> in covalent character</li>
+          <li>High ionic potential = distortion = more covalent</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!-- CHAPTER 3: COORDINATION COMPOUNDS -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <section class="chapter" id="ch3">
+    <div class="chapter-header">
+      <div class="ch-num">03</div>
+      <div class="ch-info">
+        <span class="ch-tag">Chapter Three</span>
+        <div class="ch-title">Coordination Compounds</div>
+      </div>
+    </div>
+
+    <div class="content-grid col-3">
+      <div class="card card-accent-left">
+        <div class="card-title">Werner's Theory</div>
+        <ul class="clean-list">
+          <li><strong>Primary valency</strong> = Oxidation state of metal</li>
+          <li><strong>Secondary valency</strong> = Coordination number</li>
+        </ul>
+      </div>
+
+      <div class="card card-accent-blue">
+        <div class="card-title">Biological Complexes</div>
+        <ul class="clean-list">
+          <li><span class="formula gold">Mg</span> → Chlorophyll</li>
+          <li><span class="formula red">Fe</span> → Hemoglobin</li>
+          <li><span class="formula">Co</span> → Vitamin B₁₂ (Cyanocobalamin)</li>
+          <li><span class="formula">Pt</span> → Cisplatin — anti-cancer drug</li>
+          <li><span class="formula">Rh</span> → Wilkinson's Catalyst (alkene hydrogenation)</li>
+        </ul>
+      </div>
+
+      <div class="card card-accent-gold">
+        <div class="card-title">Hybridization Guide</div>
+        <table class="chem-table">
+          <thead><tr><th>d-config</th><th>Hybridization</th><th>Geometry</th></tr></thead>
+          <tbody>
+            <tr><td>d⁰–d³</td><td>d²sp³</td><td>Inner Octahedral</td></tr>
+            <tr><td>d¹⁰</td><td>sp³</td><td>Tetrahedral</td></tr>
+            <tr><td>d⁸ (SFL)</td><td>dsp²</td><td>Square Planar</td></tr>
+          </tbody>
+        </table>
+        <p style="font-size:11.5px; color:var(--muted); margin-top:10px;">e.g. [Ni(CO)₄] sp³; [Ni(CN)₄]²⁻ dsp²; [ZnCl₄]²⁻ sp³</p>
+      </div>
+    </div>
+
+    <div class="content-grid col-2" style="margin-top:18px;">
+      <!-- CFT -->
+      <div class="card card-dark">
+        <div class="card-title">Crystal Field Theory (CFT)</div>
+        <p><strong style="color:#fff;">Octahedral:</strong> <span style="color:#aaa;">Splits into t₂g (lower) and eg (higher). eg contains dx²-y² and dz².</span></p>
+        <p style="margin-top:10px;"><strong style="color:#fff;">Square Planar energy order:</strong></p>
+        <div class="series" style="margin-top:6px;">
+          <span class="series-item red">dx²-y²</span>
+          <span class="series-arrow" style="color:#888;">&gt;</span>
+          <span class="series-item">dxy</span>
+          <span class="series-arrow" style="color:#888;">&gt;</span>
+          <span class="series-item">dz²</span>
+          <span class="series-arrow" style="color:#888;">≈</span>
+          <span class="series-item">dxz ≈ dyz</span>
+        </div>
+        <p style="margin-top:12px;"><strong style="color:#fff;">Spectrochemical Series:</strong></p>
+        <div class="series" style="margin-top:6px;">
+          <span class="series-item red">C-donors</span>
+          <span class="series-arrow" style="color:#888;">&gt;</span>
+          <span class="series-item">N-donors</span>
+          <span class="series-arrow" style="color:#888;">&gt;</span>
+          <span class="series-item">O-donors</span>
+          <span class="series-arrow" style="color:#888;">&gt;</span>
+          <span class="series-item">Halogens</span>
+        </div>
+        <p style="margin-top:12px; font-size:13px; color:#aaa;"><span class="hl">Exception:</span> For Co³⁺, O-donors also act as strong-field ligands. For 4d and 5d series — all ligands act as strong field.</p>
+      </div>
+
+      <!-- Colors -->
+      <div class="card">
+        <div class="card-title">Aqueous Ion Colors</div>
+        <table class="chem-table">
+          <thead><tr><th>Color</th><th>Ions</th><th>Memory Trick</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><span class="dot" style="background:#2e7d32;"></span>Green</td>
+              <td>Fe²⁺, Ni²⁺, V³⁺</td>
+              <td style="font-size:11px; color:var(--muted);">फेंको नहीं वन में ग्रीन लकड़ियां</td>
+            </tr>
+            <tr>
+              <td><span class="dot" style="background:#1565c0;"></span>Blue</td>
+              <td>Cu²⁺, Cr²⁺, Co²⁺, V⁴⁺</td>
+              <td style="font-size:11px; color:var(--muted);">कुकर को भी ब्लू</td>
+            </tr>
+            <tr>
+              <td><span class="dot" style="background:#6a1b9a;"></span>Violet</td>
+              <td>VO²⁺, Mn³⁺, Ti³⁺</td>
+              <td style="font-size:11px; color:var(--muted);">वो मन करे करूं वायलेंस</td>
+            </tr>
+            <tr>
+              <td><span class="dot" style="background:#f9a825;"></span>Yellow</td>
+              <td>Fe³⁺</td>
+              <td style="font-size:11px; color:var(--muted);">ये लो फिर</td>
+            </tr>
+            <tr>
+              <td><span class="dot" style="background:#f06292;"></span>Pink</td>
+              <td>Mn²⁺, Co²⁺</td>
+              <td style="font-size:11px; color:var(--muted);">मन को कर दिया पिंक</td>
+            </tr>
+          </tbody>
+        </table>
+        <p style="margin-top:12px; font-size:12.5px;"><strong>Linkage isomerism:</strong> Ambidentate ligands — <span class="formula">NO₂⁻</span> <span class="formula">SCN⁻</span> <span class="formula">CN⁻</span></p>
+        <p style="font-size:12.5px; margin-top:6px;"><strong>Fac-Mer:</strong> Shown by [Ma₃b₃]. Three same ligands at 90° = facial; any two at 180° = meridional.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!-- CHAPTER 4: p-BLOCK -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <section class="chapter" id="ch4">
+    <div class="chapter-header">
+      <div class="ch-num">04</div>
+      <div class="ch-info">
+        <span class="ch-tag">Chapter Four</span>
+        <div class="ch-title">p-Block Elements</div>
+      </div>
+    </div>
+
+    <div class="content-grid col-2-1">
+      <div class="card card-accent-left">
+        <div class="card-title">Inert Pair Effect</div>
+        <p>Going down Groups 13, 14, and 15, the <span class="hl">lower oxidation state becomes more stable</span> because ns² electrons are reluctant to participate in bonding.</p>
+        <div class="series" style="margin-top:12px; flex-wrap:wrap; row-gap:8px;">
+          <span class="series-item red">Tl⁺¹</span><span class="series-arrow">&gt;</span><span class="series-item">Tl⁺³</span>
+          <span style="width:100%;"></span>
+          <span class="series-item red">Pb²⁺</span><span class="series-arrow">&gt;</span><span class="series-item">Pb⁴⁺</span>
+          <span style="width:100%;"></span>
+          <span class="series-item red">Bi³⁺</span><span class="series-arrow">&gt;</span><span class="series-item">Bi⁵⁺</span>
+        </div>
+        <p style="margin-top:12px;">Consequence: <span class="hl">Pb⁴⁺</span> is a strong oxidizing agent (wants to become Pb²⁺).</p>
+      </div>
+
+      <div class="card card-cream">
+        <div class="card-title">Bond Energy: Halogens</div>
+        <div class="trick-box">
+          <span class="mnemonic">"काला बंदर फिर इंडिया में"</span>
+          <p style="margin-top:8px;">Cl₂ &gt; Br₂ &gt; F₂ &gt; I₂</p>
+        </div>
+        <p style="margin-top:12px; font-size:12.5px;">F₂ has a lower bond energy than Cl₂ due to lone pair repulsion in the small F atom.</p>
+      </div>
+    </div>
+
+    <div class="content-grid col-3" style="margin-top:18px;">
+      <div class="card card-accent-blue">
+        <div class="card-title">Boiling Point Rules</div>
+        <ul class="clean-list">
+          <li>Groups 13 & 14 BP <span class="hl">decreases</span> down the group</li>
+          <li>Groups 15–18 BP <span class="hl">increases</span> down the group</li>
+          <li>Gallium: lowest MP in Gr.13 but very high BP</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Hydride BP Order (H-bonding)</div>
+        <p style="font-size:12.5px; margin-bottom:8px;">Group 16 exception:</p>
+        <div class="series">
+          <span class="series-item red">H₂O</span><span class="series-arrow">&gt;</span>
+          <span class="series-item">H₂Te</span><span class="series-arrow">&gt;</span>
+          <span class="series-item">H₂Se</span><span class="series-arrow">&gt;</span>
+          <span class="series-item">H₂S</span>
+        </div>
+        <p style="font-size:12.5px; margin-top:10px; margin-bottom:8px;">Group 15:</p>
+        <div class="series">
+          <span class="series-item">SbH₃</span><span class="series-arrow">&gt;</span>
+          <span class="series-item red">NH₃</span><span class="series-arrow">&gt;</span>
+          <span class="series-item">AsH₃</span><span class="series-arrow">&gt;</span>
+          <span class="series-item">PH₃</span>
+        </div>
+      </div>
+
+      <div class="card card-accent-gold">
+        <div class="card-title">Group 15 Hydrides</div>
+        <ul class="clean-list">
+          <li><strong>Basic strength ↓ down group:</strong> NH₃ is the strongest base</li>
+          <li><strong>Reducing power ↑ down group:</strong> BiH₃ is the strongest reducing agent</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!-- CHAPTER 5: d & f BLOCK -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <section class="chapter" id="ch5">
+    <div class="chapter-header">
+      <div class="ch-num">05</div>
+      <div class="ch-info">
+        <span class="ch-tag">Chapter Five</span>
+        <div class="ch-title">d &amp; f Block Elements</div>
+      </div>
+    </div>
+
+    <div class="content-grid col-3">
+      <div class="card card-dark">
+        <div class="card-title">Oxidation States</div>
+        <ul class="clean-list">
+          <li style="border-color:#333; color:#ccc;"><span class="formula">Sc</span> only +3</li>
+          <li style="border-color:#333; color:#ccc;"><span class="formula">Zn</span> only +2</li>
+          <li style="border-color:#333; color:#ccc;"><span class="formula red">Mn</span> highest in 3d = <strong style="color:#fff;">+7</strong></li>
+          <li style="border-color:#333; color:#ccc; border:none;"><span class="formula red">Ru, Os</span> highest in entire d-block = <strong style="color:#fff;">+8</strong></li>
+        </ul>
+      </div>
+
+      <div class="card card-accent-left">
+        <div class="card-title">Melting Points & Atomization</div>
+        <ul class="clean-list">
+          <li><span class="hl">W (Tungsten)</span> — highest melting point</li>
+          <li>Mn and Zn have unexpectedly <span class="hl">low MP</span> (stable half/full d-configs limit metallic bonding)</li>
+          <li>Highest heat of atomization in 3d: <span class="hl">Vanadium (V)</span></li>
+        </ul>
+        <div class="trick-box" style="margin-top:12px;">
+          <span class="mnemonic">"जानेमन कुकर फेंको नहीं टीवी पर"</span>
+          <p style="margin-top:4px;">V &gt; Cr &gt; Fe &gt; Ni &gt; Ti &gt; ... (heat of atomization)</p>
+        </div>
+      </div>
+
+      <div class="card card-accent-gold">
+        <div class="card-title">Alloys</div>
+        <table class="chem-table">
+          <thead><tr><th>Alloy</th><th>Composition</th></tr></thead>
+          <tbody>
+            <tr><td>Brass</td><td>Cu + Zn</td></tr>
+            <tr><td>Bronze</td><td>Cu + Sn</td></tr>
+            <tr><td>Stainless Steel</td><td>Fe + Cr + Ni + C</td></tr>
+            <tr><td>UK Silver Coin</td><td>Cu + Ni</td></tr>
+          </tbody>
+        </table>
+        <div class="trick-box" style="margin-top:10px;">
+          <p>Stainless Steel: <span class="mnemonic">"फिकर को निकाल"</span></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-grid col-2" style="margin-top:18px;">
+      <!-- KMnO4 -->
+      <div class="card card-accent-blue">
+        <div class="card-title">Potassium Permanganate (KMnO₄)</div>
+        <p>Prepared from <span class="hl">Pyrolusite ore (MnO₂)</span>:</p>
+        <p style="font-size:12.5px; margin:8px 0;">MnO₂ + KOH + O₂ → <span class="formula gold">K₂MnO₄</span> (Green, Mn⁺⁶) → <span class="formula red">KMnO₄</span> (Purple, Mn⁺⁷)</p>
+        <table class="chem-table" style="margin-top:10px;">
+          <thead><tr><th>Medium</th><th>Mn product</th><th>Color</th></tr></thead>
+          <tbody>
+            <tr><td>Acidic</td><td>Mn⁺² (MnSO₄)</td><td>Colorless</td></tr>
+            <tr><td>Neutral / Faint alkali</td><td>MnO₂ (Mn⁺⁴)</td><td>Brown ppt</td></tr>
+            <tr><td>Strongly Basic</td><td>MnO₄²⁻ (Mn⁺⁶)</td><td>Green</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- K2Cr2O7 + Lanthanides -->
+      <div>
+        <div class="card card-accent-left">
+          <div class="card-title">Potassium Dichromate (K₂Cr₂O₇)</div>
+          <p>From <span class="hl">Chromite ore (FeCr₂O₄)</span>: Fuse with Na₂CO₃ + O₂ → <span class="formula gold">Na₂CrO₄</span> (Yellow) → acid → Na₂Cr₂O₇ → +KCl → <span class="formula red">K₂Cr₂O₇</span> (Orange).</p>
+          <p style="margin-top:10px; font-size:13px;"><span class="hl">CrO₄²⁻</span> (Yellow) ⇌ <span class="hl">Cr₂O₇²⁻</span> (Orange): Acid shifts yellow → orange; Base shifts orange → yellow.</p>
+        </div>
+        <div class="card card-cream" style="margin-top:18px;">
+          <div class="card-title">Lanthanides & Actinides</div>
+          <ul class="clean-list">
+            <li>Key configs: Ce (4f¹5d¹6s²), Gd (4f⁷5d¹6s²), Lu (4f¹⁴5d¹6s²)</li>
+            <li><span class="hl">Mischmetall:</span> ~95% Lanthanide + ~5% Fe — used in bullets & lighter flints</li>
+            <li><span class="hl">Promethium (Pm)</span> — only radioactive lanthanide</li>
+            <li>All actinides are radioactive. Highest OS = <strong>+7</strong> (Np, Pu)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!-- CHAPTER 6: SALT ANALYSIS -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <section class="chapter" id="ch6">
+    <div class="chapter-header">
+      <div class="ch-num">06</div>
+      <div class="ch-info">
+        <span class="ch-tag">Chapter Six</span>
+        <div class="ch-title">Salt Analysis</div>
+      </div>
+    </div>
+
+    <div class="content-grid col-2">
+      <!-- Anions -->
+      <div class="card card-accent-left">
+        <div class="card-title">Anion Tests</div>
+        <table class="chem-table">
+          <thead><tr><th>Anion</th><th>Reagent / Observation</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><span class="formula">CO₃²⁻</span></td>
+              <td>Dil. acid → CO₂ gas (turns lime water milky)</td>
+            </tr>
+            <tr>
+              <td><span class="formula">S²⁻</span></td>
+              <td>Dil. acid → H₂S (rotten egg; turns lead acetate black)</td>
+            </tr>
+            <tr>
+              <td><span class="formula">S²⁻</span> (confirmatory)</td>
+              <td>Sodium Nitroprusside → <span class="hl" style="color:purple;">Violet</span> Na₄[Fe(CN)₅NOS]</td>
+            </tr>
+            <tr>
+              <td><span class="formula">NO₃⁻ / NO₂⁻</span></td>
+              <td>Brown Ring Test → [Fe(H₂O)₅NO]²⁺; Fe = +1, NO = +1</td>
+            </tr>
+            <tr>
+              <td><span class="formula">Cl⁻</span></td>
+              <td>Chromyl Chloride Test → CrO₂Cl₂ (red-brown vapors) → NaOH → Pb(OAc)₂ → yellow PbCrO₄ ppt</td>
+            </tr>
+            <tr>
+              <td><span class="formula">CH₃COO⁻</span></td>
+              <td>Neutral FeCl₃ → deep red solution → on heating → red-brown ppt</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Cations -->
+      <div class="card card-accent-blue">
+        <div class="card-title">Cation Group Tests</div>
+        <table class="chem-table">
+          <thead><tr><th>Group</th><th>Ions</th><th>Reagent & Key Observation</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>0</strong></td>
+              <td>NH₄⁺</td>
+              <td>NaOH → NH₃; Nessler's reagent (K₂HgI₄) → brown ppt</td>
+            </tr>
+            <tr>
+              <td><strong>1</strong></td>
+              <td>Ag⁺, Pb²⁺, Hg₂²⁺</td>
+              <td>Dil. HCl; PbCl₂ dissolves in hot water; AgCl dissolves in NH₃</td>
+            </tr>
+            <tr>
+              <td><strong>2</strong></td>
+              <td>Cu, Hg, Cd, Bi…</td>
+              <td>H₂S + dil. HCl; CdS = yellow; Cu²⁺ + K₄[Fe(CN)₆] → <span class="hl" style="color:#6b3a2a;">chocolate brown</span> ppt</td>
+            </tr>
+            <tr>
+              <td><strong>3</strong></td>
+              <td>Fe³⁺, Al³⁺, Cr³⁺</td>
+              <td>NH₄OH + NH₄Cl; Fe³⁺ + K₄[Fe(CN)₆] → <span class="hl" style="color:#1565c0;">Prussian Blue</span>; Fe³⁺ + SCN⁻ → <span class="hl">Blood Red</span></td>
+            </tr>
+            <tr>
+              <td><strong>4</strong></td>
+              <td>Zn, Mn, Co, Ni</td>
+              <td>H₂S + NH₄OH; MnS = buff pink; ZnS = white; Ni²⁺ + DMG → <span class="hl" style="color:#c2185b;">rosy red</span> sq. planar complex (14 H-bonds)</td>
+            </tr>
+            <tr>
+              <td><strong>5</strong></td>
+              <td>Ba²⁺, Sr²⁺, Ca²⁺</td>
+              <td>(NH₄)₂CO₃ → white precipitates</td>
+            </tr>
+            <tr>
+              <td><strong>6</strong></td>
+              <td>Mg²⁺</td>
+              <td>Na₂HPO₄ + NH₄OH → white crystalline Mg(NH₄)PO₄ ppt</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Interstitial compounds callout -->
+    <div class="card card-dark" style="margin-top:18px;">
+      <div class="card-title">Interstitial Compounds — Quick Facts</div>
+      <p>Small non-metals (<strong style="color:#fff;">H, B, C, N</strong>) trapped in metal lattice voids. Properties: <span style="color:#aaa;">chemically inert · very hard · high melting points · retain metallic conductivity.</span></p>
+    </div>
+  </section>
+
+</div><!-- /wrapper -->
+
+<footer>
+  <strong>Inorganic Chemistry</strong> &nbsp;·&nbsp; Complete Revision Notes &nbsp;·&nbsp; All 6 Chapters &nbsp;·&nbsp; JEE / NEET
+</footer>
+
+</body>
+</html>
